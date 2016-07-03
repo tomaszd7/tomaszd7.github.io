@@ -15,4 +15,8 @@
 	<a href='SceneNavigation.apk' download>Apka SceneNavigation res.768</a>
 	<p></p>
 	<a href='ScreenTouch.apk' download>Apka ScreenTouch res.768</a>
+
+
+	<h3>LInking back</h3>
+	<a href="index.php">Main page</a>
 </body>
