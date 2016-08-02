@@ -4,6 +4,7 @@ body {
 	background-size: 100%;
 	position: relative;
 	padding-top: 20px;
+	height: 650px;
 }
 
 table
@@ -211,4 +212,8 @@ button {
 	padding: 20px;
 	font-weight: bold;
 	text-decoration: none;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 200px;
 }
