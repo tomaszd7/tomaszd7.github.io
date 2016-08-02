@@ -49,11 +49,11 @@ tr td:first-child {
 
 .wrapper-head {
 	position: absolute;
-	width: 223px;
+	width: 350px;
 /*	background-color: #6675ba;*/
 /*    background-color: #152ec5;*/
 	top: 40px;
-	right: 150px;
+	right: 30px;
 	padding: 20px;
     
 /*	display: flex;*/
@@ -113,10 +113,6 @@ tr td:first-child {
 	/*opacity: 0.8;*/
 }
 
-.none {
-	display: none;
-}
-
 
 img {
     width: 100%;
@@ -126,7 +122,7 @@ img {
 /*HEADER items */
 
 button {
-    display: block;
+    display: inline-block;
 	width: 180px;
 	/*float: right;*/
 /*	display: inline-block;*/
@@ -135,6 +131,12 @@ button {
 	font-weight: bold;
 	background-color: #860a0a;
 	color: white;
+}
+
+#logButton {
+	width: 100px; 
+    margin-left: 50px;
+    background: #263069;
 }
 
 .field {
@@ -226,4 +228,42 @@ button {
     margin: 0px auto;
     /*opacity: 0.5;*/
     
+}
+
+#logs {
+    color: white;
+    width: 331px;
+    height: 260px;
+    position: absolute;
+    top: 300px;
+    right: 65px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+	border: 2px solid #dddddd;
+    border-style: outset;
+    background-color: #263069;
+
+}
+
+#logs p {
+	text-align: left;
+	font-size: 12px;
+	margin: 0px;
+	padding: 5px 10px;
+	font-family: "Lucida Console";
+}
+
+
+#allWhales {
+	background-color: #ca9d0c;
+}
+
+
+.none {
+	display: none;
+}
+
+.none-whale .none {
+	display: none;
 }

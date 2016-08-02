@@ -50,7 +50,10 @@ function runGame() {
 						}
 						// jesli whale 
 						} else if (this.classList.contains('whale')) {
-                            this.innerHTML = '<img src=\'whale2.png\'/>';
+							if (this.children.length != 1) {
+	                            this.innerHTML = '<img src=\'whale2.png\'/>';
+	                            checkWhales();
+	                        }
 						// jesli pudlo 
 						} else {
 							this.classList.add('miss');
@@ -80,7 +83,10 @@ function runGame() {
 	                	var idCheck = i + '-' + j;
 	                	var thisCell = document.getElementById(idCheck);
 	                	if (thisCell.classList.contains('whale')) {
-	                        thisCell.innerHTML = '<img src=\'whale2.png\'/>';
+							if (thisCell.children.length != 1) {
+	                            thisCell.innerHTML = '<img src=\'whale2.png\'/>';
+	                            checkWhales();
+	                        }
 	                	} else {
 		                	thisCell.classList.add('miss')
 	                	}
@@ -145,9 +151,16 @@ function runGame() {
             }
 
 		}
+
 	}
 
+
 	function unhideAllElements() {
+		// game logs container to skip 
+		var gameLogsVar = false;
+		if (document.getElementById("logs").classList.contains('none')) {
+			gameLogsVar = true;
+		}
         // czemu zle znajduje??? 
 		// var toRemove = document.getElementsByClassName('none'); // tak znajmduje POLOWE!!
 		var toRemove = document.querySelectorAll('.none'); // TAK DZIALA !!! - non-live nodelist!!??
@@ -167,6 +180,11 @@ function runGame() {
 		// console.log(temp);
             
         document.getElementById("won").classList.add('none');
+        if (gameLogsVar) {
+	        document.getElementById("logs").classList.add('none');
+        }
+		// hide bonuses 
+        document.getElementById("allWhales").classList.add('none-whale', 'none');
 	}
 
 
@@ -221,6 +239,14 @@ function runGame() {
 
 	}
 
+	function checkWhales() {
+		WHALESFOUND++;
+		if (ALLWHALES === WHALESFOUND) {
+	        document.getElementById("allWhales").classList.remove('none-whale', 'none');
+		}
+	}
+
+
 	/*KOD GAME STARTS HERE*/
 	console.log('NEW GAME STARTS HERE');
 
@@ -261,7 +287,9 @@ function runGame() {
 
 	// add random whales = GRID
 
-	for (var i = 0; i < GRID; i++) {
+	var ALLWHALES = GRID;
+	var WHALESFOUND = 0;
+	for (var i = 0; i < ALLWHALES; i++) {
 		addWhale();
 	}
 
@@ -278,11 +306,20 @@ function runGame() {
 	// addEventToAllCells(false);
 }
 
-
+function turnGameLogs() {
+	var gameLogs = document.getElementById('logs');
+	if (gameLogs.classList.contains('none')) {
+		gameLogs.classList.remove('none');
+	} else {
+		gameLogs.classList.add('none');
+	}
+}
 
 var gameStart = document.getElementById("button");
 gameStart.onclick = runGame;
 
+// adding game logs 
+document.getElementById("logButton").onclick = turnGameLogs;
 
 // create table cells with ids!!!
 
