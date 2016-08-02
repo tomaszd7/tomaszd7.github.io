@@ -36,7 +36,7 @@ function runGame() {
                                     var thisId = this.id;
                                     // auto complete cells 
                                     autoComplete(thisId);
-//                                    console.log('CHECCICKING IS ON ', thisId);
+									// console.log('CHECCICKING IS ON ', thisId);
                                 } else {
                                     console.log('OFF');
                                 }
@@ -45,12 +45,12 @@ function runGame() {
                                 if (ALLSHIPS - SHIPSSUNK == 0) {
                                     // cancel events 
                                     addEventToAllCells(false);
-                                    document.getElementById('won').classList.remove('none');
-                                    
-                                }
-                                
+                                    document.getElementById('won').classList.remove('none');   
+                                }                               
 						}
-
+						// jesli whale 
+						} else if (this.classList.contains('whale')) {
+                            this.innerHTML = '<img src=\'whale2.png\'/>';
 						// jesli pudlo 
 						} else {
 							this.classList.add('miss');
@@ -78,11 +78,16 @@ function runGame() {
 	            for (var j = y - 1; j <= y + 1; j++) {
 	                if (j >= 1 && j <= GRID) {
 	                	var idCheck = i + '-' + j;
-	                    document.getElementById(idCheck).classList.add('miss')
-	                    }
+	                	var thisCell = document.getElementById(idCheck);
+	                	if (thisCell.classList.contains('whale')) {
+	                        thisCell.innerHTML = '<img src=\'whale2.png\'/>';
+	                	} else {
+		                	thisCell.classList.add('miss')
+	                	}
 	                }
 	            }
-	        }
+	    	}
+	    }
         document.getElementById(thisId).classList.remove('miss');
     }
     
@@ -112,12 +117,6 @@ function runGame() {
 			var randomY = Math.floor((Math.random()* GRID) + 1);
 			var cellId = randomX + '-' + randomY;
 
-			// if (!document.getElementById(cellId).classList.contains('black')) {
-			// 	goodSpot = true;
-			// } else {
-			// 	console.log('DUPLIKAT!!!' + cellId);
-			// }
-
 			// adding isGoodSpot - nie moze byc wokolo!!!
 			if (isGoodSpot(randomX, randomY)) {
 				document.getElementById(cellId).classList.add('black');
@@ -139,7 +138,7 @@ function runGame() {
 		for (var i = 0; i < itemsToRemove.length; i++) { // to pojdzie tezpo associated table a nietylko indeksach 
 			// jak zwykly for !!! bo tu wzial pole .length !!! i polecial po ni m shit !!!!! 
 			// wieczwyklyfor musi byc !! -czyli po indeksach 
-			itemsToRemove[i].classList.remove('black', 'hit', 'miss');
+			itemsToRemove[i].classList.remove('black', 'hit', 'miss', 'whale');
 			itemsToRemove[i].onclick = null;
             if (itemsToRemove[i].children.length == 1) {
                itemsToRemove[i].innerHTML = ''; 
@@ -153,19 +152,19 @@ function runGame() {
 		// var toRemove = document.getElementsByClassName('none'); // tak znajmduje POLOWE!!
 		var toRemove = document.querySelectorAll('.none'); // TAK DZIALA !!! - non-live nodelist!!??
 		// list types 
-		var temp = {
-			'TH': 0,
-			'TD': 0,
-			'TR': 0,
-			'DIV': 0
-		}
-		console.log('ilosc NONE elementow: ' + toRemove.length);
+		// var temp = {
+		// 	'TH': 0,
+		// 	'TD': 0,
+		// 	'TR': 0,
+		// 	'DIV': 0
+		// }
+		// console.log('ilosc NONE elementow: ' + toRemove.length);
 		for (var i = 0; i < toRemove.length; i++) {
-			temp[toRemove[i].nodeName]++;
-			console.log(toRemove[i].nodeName + ': ' + toRemove[i].id);
+			// temp[toRemove[i].nodeName]++;
+			// console.log(toRemove[i].nodeName + ': ' + toRemove[i].id);
 			toRemove[i].classList.remove('none');
 		}
-		console.log(temp);
+		// console.log(temp);
             
         document.getElementById("won").classList.add('none');
 	}
@@ -205,6 +204,23 @@ function runGame() {
 	// czyli pyta sie type of !== undefined !!! a nie obiekt !! -czy pola istnieja 
 
 
+	function addWhale() {
+		do {
+			var goodSpot = false;
+			var x = Math.floor(Math.random() * GRID + 1)
+			var y = Math.floor(Math.random() * GRID + 1)
+			var cellId = x + '-' + y;
+			console.log(cellId);
+			var cellClass = document.getElementById(cellId).classList;
+			if (!(cellClass.contains('black') || cellClass.contains('whale'))) {
+				cellClass.add('whale');
+				goodSpot = true;
+			}
+
+		} while (!goodSpot)
+
+	}
+
 	/*KOD GAME STARTS HERE*/
 	console.log('NEW GAME STARTS HERE');
 
@@ -231,15 +247,6 @@ function runGame() {
     hideElements(GRID);
 //	}
 
-	// add GRID to results window
-	// document.getElementById("resGridSize").innerText = GRID;
-
-	// start timer and random coloring 
-	// var start = new Date();
-	// start = start.getTime();
-	// console.log(start);
-	// var end;
-
 
 	var ALLSHIPS = GRID;
 	var SHIPSSUNK = 0;
@@ -250,6 +257,12 @@ function runGame() {
 
 	for (var i = 0; i < ALLSHIPS; i++) {
 		getRandomCell();
+	}
+
+	// add random whales = GRID
+
+	for (var i = 0; i < GRID; i++) {
+		addWhale();
 	}
 
 	// end of game - TIMES OUT!

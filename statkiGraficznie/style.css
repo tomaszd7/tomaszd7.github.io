@@ -110,7 +110,7 @@ tr td:first-child {
 }
 
 .black {
-/*	opacity: 0.8;*/
+	/*opacity: 0.8;*/
 }
 
 .none {
@@ -216,4 +216,14 @@ button {
 	left: 0px;
 	bottom: 0px;
 	width: 200px;
+}
+
+.whale {
+
+    /*height: 30px;*/
+    vertical-align: middle;
+    /* text-align: center; */
+    margin: 0px auto;
+    /*opacity: 0.5;*/
+    
 }
