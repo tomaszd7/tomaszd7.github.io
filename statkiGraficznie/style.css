@@ -1,0 +1,214 @@
+body {
+	margin: 0px;
+	background-image: url(woda.jpeg);
+	background-size: 100%;
+	position: relative;
+	padding-top: 20px;
+}
+
+table
+/*.wrapper-head,*/
+/*.results */
+{
+	padding: 10px;
+	background-color: #6675ba;
+    border: 4px solid white;
+    border-style: outset;
+}
+
+table {
+	margin: 0px auto;
+}
+
+td {
+	background-color: #DDD;
+/*	padding: 5px;*/
+	width: 38px;
+	height: 40px;
+    padding: 0px;
+}
+
+tr th, 
+tr td:first-child {
+	font-weight: bold;
+	background-color: #FFF;
+	text-align: center;
+	height: 40px;
+/*    width: 42px;*/
+    
+/*	padding: 5px;*/
+}
+
+
+.wrapper-game {
+	max-width: 35%;
+	margin: 40px auto;
+	padding: 10px 0px;
+}
+
+.wrapper-head {
+	position: absolute;
+	width: 223px;
+/*	background-color: #6675ba;*/
+/*    background-color: #152ec5;*/
+	top: 40px;
+	right: 150px;
+	padding: 20px;
+    
+/*	display: flex;*/
+/*    background-color: #152ec5;*/
+/*    background-color: #6675ba;*/
+}
+
+.wrapper-head .field {
+    width: 165px;
+    text-align: center;
+}
+
+.header {
+	background-color: rgba(255, 255, 255, 0);
+	padding-bottom: 10px;
+	/*padding-top: 20px;*/
+	color: white;
+}
+
+/*
+.wrapper-head div {
+	display: inline-block;
+	margin: 0px 97px;
+}
+*/
+
+.grey {
+	background-color: #DDD;
+}
+
+.red {
+	color: red;
+}
+
+
+
+/*CLASSES on game board */
+
+.hit {
+/*	background-color: #0e164a;*/
+/*    background-image: url(ship2.png);*/
+/*	border: 4px solid #d3eded;*/
+	width: 22px;
+	height: 22px;
+/*    border-style: outset;*/
+}
+
+.miss {
+	background-color: #94baf8;
+	border: 2px solid #DDD;
+	width: 34px;
+	height: 36px;
+
+}
+
+.black {
+/*	opacity: 0.8;*/
+}
+
+.none {
+	display: none;
+}
+
+
+img {
+    width: 100%;
+	height: 30px;
+}
+
+/*HEADER items */
+
+button {
+    display: block;
+	width: 180px;
+	/*float: right;*/
+/*	display: inline-block;*/
+	margin: 70px 0px;
+	padding: 7px;
+	font-weight: bold;
+	background-color: #860a0a;
+	color: white;
+}
+
+.field {
+	/*width: 24%;*/
+	display: inline-block;
+	margin: 20px auto 0px auto;
+	padding: 5px;
+	font-weight: bold;
+	background-color: #263069;
+	color: white;
+	border: 2px solid #dddddd;
+    border-style: outset;
+
+}
+
+
+/* div RESULTS */
+
+.results {
+	position: absolute;
+	width: 223px;
+/*	background-color: #6675ba;*/
+/*    background-color: #152ec5;*/
+	top: 40px;
+	left: 150px;
+	padding: 20px;
+}
+
+.results .field {
+	width: 200px;
+	padding-left: 14px;
+}
+
+.results .field:last-child {
+	margin-bottom: 20px;
+}
+
+.results .field span {
+	float: right;
+	padding-right: 14px;
+}
+
+
+
+#won {
+    color: white;
+    width: 500px;
+    height: 100px;
+    position: absolute;
+    top: 450px;
+    top: 450px;
+    left: 31.5%;
+/*    background-color: #7a9bdd;*/
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+/*    background-image: url(water-won.jpg);*/
+	border: 2px solid #dddddd;
+    border-style: outset;
+/*    background-size: cover;*/
+    background-color: #263069;
+        
+}
+
+#won p {
+/*    vertical-align: middle;*/
+    margin: 35px;
+}
+
+
+.linking,
+.linking a,
+.linking a:visited {
+	color: white;
+	padding: 20px;
+	font-weight: bold;
+	text-decoration: none;
+}

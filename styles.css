@@ -1,0 +1,33 @@
+* {
+	font-family: verdana;
+}
+
+body {
+	/*background-color:azure; */
+	background-image: url(image.jpg);
+}
+
+div {
+	margin:50px 150px; 
+	background-color: beige; 
+	padding: 40px; 
+	border: 1px solid;
+}
+
+p {
+
+}
+
+li {
+	display: inline;
+	margin: 0px 20px;
+	position: relative;
+	float: right;
+	top: -15px;
+}
+
+
+#register {
+	margin: 0px;
+	margin-left: 80%;
+}
