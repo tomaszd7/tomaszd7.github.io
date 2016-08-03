@@ -43,9 +43,11 @@ function runGame() {
                                 
                                 // check if all sunk 
                                 if (ALLSHIPS - SHIPSSUNK == 0) {
+                                    
+                                    document.getElementById("resShipButton").classList.add('gold');
                                     // cancel events 
                                     addEventToAllCells(false);
-                                    document.getElementById('won').classList.remove('none');   
+                                    // document.getElementById('won').classList.remove('none');   
                                 }                               
 						}
 						// jesli whale 
@@ -151,6 +153,7 @@ function runGame() {
             }
 
 		}
+        document.getElementById("resShipButton").classList.remove('gold');
 
 	}
 
@@ -215,7 +218,7 @@ function runGame() {
 
 	function updateResults() {
 		document.getElementById("resShipsSunk").innerText = SHIPSSUNK;
-		document.getElementById("resShipsStill").innerText = ALLSHIPS - SHIPSSUNK;
+		// document.getElementById("resShipsStill").innerText = ALLSHIPS - SHIPSSUNK;
 		document.getElementById("resShots").innerText = SHOTS;
 
 	}

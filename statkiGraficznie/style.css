@@ -256,7 +256,16 @@ button {
 
 
 #allWhales {
-	background-color: #ca9d0c;
+	background-color: rgba(255, 215, 0, 0.79);
+}
+
+
+.goal {
+	background-color: rgba(13, 119, 36, 0.82);
+}
+
+.gold {
+	background-color: rgba(255, 215, 0, 0.79);
 }
 
 
