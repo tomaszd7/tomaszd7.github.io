@@ -35,15 +35,15 @@
 						// echo '<td></td>';
 						if ($y % 2 == 1) { /*biale zaczynaja z lewej */
 							if ($x % 2 == 1) {
-								echo '<td id=\'' . strval($x) . '-' . strval($y) .'\' class=\'white\'></td>';
+								echo '<td id=\'' . strval($x) . '-' . strval(8 - $y + 1) .'\' class=\'white\'></td>';
 							} else {
-								echo '<td id=\'' . strval($x) . '-' . strval($y) .'\' class=\'black\'></td>';
+								echo '<td id=\'' . strval($x) . '-' . strval(8 - $y + 1) .'\' class=\'black\'></td>';
 							}
 						} else { /*czarne zaczynaja */
 							if ($x % 2 == 1) {
-								echo '<td id=\'' . strval($x) . '-' . strval($y) .'\' class=\'black\'></td>';
+								echo '<td id=\'' . strval($x) . '-' . strval(8 - $y + 1) .'\' class=\'black\'></td>';
 							} else {
-								echo '<td id=\'' . strval($x) . '-' . strval($y) .'\' class=\'white\'></td>';
+								echo '<td id=\'' . strval($x) . '-' . strval(8 - $y + 1) .'\' class=\'white\'></td>';
 							}
 						}
 					};
